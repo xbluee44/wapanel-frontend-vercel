@@ -4,7 +4,38 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Login — WA Panel</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <style>/* core */
+:root{
+  --bg:#0b0f17; --panel:#0f1724; --accent1:#7c3aed; --accent2:#06b6d4;
+  --muted:#9aa4b2; --card:#0b1220; --danger:#ef4444;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:linear-gradient(180deg,#05060a,#071026);color:#e6eef6}
+.app{display:flex;height:100vh}
+.sidebar{width:240px;padding:28px;background:linear-gradient(180deg,#061124,#04101a);display:flex;flex-direction:column}
+.logo-sm{width:44px}
+.sidebar h3{margin:8px 0 18px;color:var(--accent1)}
+.nav a{display:block;padding:12px;border-radius:8px;color:#a8c0c8;text-decoration:none;margin-bottom:8px;cursor:pointer}
+.nav a.active, .nav a:hover{background:rgba(124,58,237,0.12);color:#fff}
+.main{flex:1;padding:24px;overflow:auto}
+.panel{display:none}
+.panel.active{display:block}
+.card{background:var(--card);padding:16px;border-radius:12px;margin-bottom:18px;box-shadow:0 6px 24px rgba(2,6,23,0.6)}
+.card-row{display:flex;gap:16px}
+.card-row .card{flex:1}
+.qr{width:260px;border-radius:8px;background:#07111a;padding:8px}
+input,textarea{width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:#07151b;color:#e6eef6}
+button.btn{padding:10px 14px;border-radius:8px;border:none;cursor:pointer;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#021018}
+button.danger{background:var(--danger)}
+.log{background:#061220;padding:10px;border-radius:8px;max-height:220px;overflow:auto;color:var(--muted)}
+.hint{color:var(--muted)}
+.note{color:#f59e0b}
+.login-body{display:flex;align-items:center;justify-content:center;height:100vh}
+.login-wrap{width:420px;padding:28px;background:linear-gradient(180deg,#071426,#061028);border-radius:14px;box-shadow:0 20px 60px rgba(2,6,23,0.7)}
+.login-card{margin-top:12px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .logo{width:60px}
+.msg{color:#ffcd3c;margin-top:8px}</style>
 </head>
 <body class="login-body">
   <div class="login-wrap">

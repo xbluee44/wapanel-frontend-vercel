@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard — WA Panel</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <img src="assets/logo.svg" class="logo-sm" alt="logo">
+        <h3>WA Panel</h3>
+      </div>
+      <nav class="nav">
+        <a data-target="home" class="active">Dashboard</a>
+        <a data-target="whatsapp">WhatsApp</a>
+        <a data-target="telegram">Telegram</a>
+        <a data-target="broadcast">Broadcast</a>
+        <a data-target="spammer">Spammer (Sim)</a>
+        <a data-target="clone">Clone Bot</a>
+        <a data-target="owner">Chat Owner</a>
+        <a id="logoutBtn">Logout</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <!-- HOME -->
+      <section id="home" class="panel active">
+        <h2>Dashboard</h2>
+        <div class="card-row">
+          <div class="card">
+            <h4>WA Status</h4>
+            <p id="waStatus">OFFLINE</p>
+          </div>
+          <div class="card">
+            <h4>Telegram Status</h4>
+            <p id="tgStatus">DISCONNECTED</p>
+          </div>
+          <div class="card">
+            <h4>Total Sent</h4>
+            <p id="totalSent">0</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Incoming Log</h4>
+          <pre id="incomingLog" class="log"></pre>
+        </div>
+      </section>
+
+      <!-- WHATSAPP -->
+      <section id="whatsapp" class="panel">
+        <h2>WhatsApp Bot</h2>
+        <div class="grid">
+          <div class="card">
+            <h4>Scan QR</h4>
+            <img id="qrImage" src="" alt="qr" class="qr" />
+            <p class="hint">Scan QR menggunakan WhatsApp di HP</p>
+          </div>
+
+          <div class="card">
+            <h4>Kirim Pesan</h4>
+            <input id="waNumber" placeholder="6285..." />
+            <textarea id="waMessage" placeholder="Tulis pesan..."></textarea>
+            <button class="btn" onclick="sendWA()">Kirim</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- TELEGRAM -->
+      <section id="telegram" class="panel">
+        <h2>Telegram</h2>
+        <div class="card">
+          <label>Bot Token</label>
+          <input id="tgToken" placeholder="Masukkan token Bot Telegram" />
+          <button class="btn" onclick="initTelegram()">Init Telegram</button>
+
+          <label>Chat ID</label>
+          <input id="tgChatId" placeholder="chat id" />
+          <textarea id="tgMessage" placeholder="Pesan untuk Telegram"></textarea>
+          <button class="btn" onclick="sendTelegram()">Kirim ke Telegram</button>
+
+          <div class="log" id="tgLog"></div>
+        </div>
+      </section>
+
+      <!-- BROADCAST -->
+      <section id="broadcast" class="panel">
+        <h2>Safe Broadcast</h2>
+        <div class="card">
+          <label>Daftar nomor (per baris)</label>
+          <textarea id="bTargets" placeholder="6285..."></textarea>
+          <label>Pesan</label>
+          <textarea id="bMessage"></textarea>
+          <label>Delay (ms, min 1000)</label>
+          <input id="bDelay" placeholder="2000" />
+          <button class="btn" onclick="startBroadcast()">Mulai Broadcast</button>
+          <div class="log" id="bLog"></div>
+        </div>
+      </section>
+
+      <!-- SPAMMER SIM -->
+      <section id="spammer" class="panel">
+        <h2>Spammer — Simulation</h2>
+        <div class="card">
+          <label>Target (nomor / ngl handle)</label>
+          <input id="simTarget" />
+          <label>Speed (msg/sec)</label>
+          <input id="simSpeed" placeholder="5" />
+          <label>Count</label>
+          <input id="simCount" placeholder="20" />
+          <button class="btn danger" onclick="startSpammerSim()">Mulai Simulasi</button>
+          <div class="log" id="simLog"></div>
+          <p class="note">⚠️ Ini simulasi. Untuk pengiriman nyata pakai Broadcast (opt-in).</p>
+        </div>
+      </section>
+
+      <!-- CLONE -->
+      <section id="clone" class="panel">
+        <h2>Clone Bot dari GitHub</h2>
+        <div class="card">
+          <label>Git Repo URL</label>
+          <input id="cloneRepo" placeholder="https://github.com/user/repo.git" />
+          <button class="btn" onclick="cloneRepo()">Clone & Run</button>
+          <pre id="cloneLog" class="log"></pre>
+        </div>
+      </section>
+
+      <!-- OWNER -->
+      <section id="owner" class="panel">
+        <h2>Chat Owner</h2>
+        <div class="card">
+          <p>Owner number: <b id="ownerNumber">085256283487</b></p>
+          <textarea id="ownerMsg" placeholder="Pesan untuk owner..."></textarea>
+          <button class="btn" onclick="chatOwner()">Kirim ke Owner (via WA form)</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+          </html>
